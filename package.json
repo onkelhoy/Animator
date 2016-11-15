@@ -1,0 +1,16 @@
+{
+  "name": "animator",
+  "version": "1.0.0",
+  "description": "\"animation tool for 2d games\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HEnry Pap",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0"
+  }
+}

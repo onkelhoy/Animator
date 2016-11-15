@@ -1,0 +1,62 @@
+/***** SETUP ***********************************************/
+* {
+	-webkit-touch-callout: none;/* iOS Safari */
+    -webkit-user-select: none; 	/* Chrome/Safari/Opera */
+    -khtml-user-select: none; 	/* Konqueror */
+    -moz-user-select: none; 	/* Firefox */
+    -ms-user-select: none; 		/* Internet Explorer/Edge */
+    user-select: none; 			/* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+/***** HEADER ***********************************************/
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	height: 40px;
+	line-height: 40px;
+	width: 100%;
+	
+	z-index: 5;
+	background-color: #eee;
+}
+header > ul {
+	width: 100%;
+}
+header > ul > li {
+	float: left;
+	width: 10%;
+	min-width: 100px;
+}
+header > ul > li > ul {
+	display: none;
+}
+header li {
+	cursor: pointer;
+}
+header > ul > li > ul {
+	min-width: 200px;
+}
+
+
+
+/***** CANVAS ***********************************************/
+canvas {
+	outline: 1px solid gray;
+	position: absolute;
+	top: 40px;
+	left: 0;
+
+	z-index: 0;
+
+	cursor: normal;
+}
+
+/***** FOOTER ***********************************************/
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
