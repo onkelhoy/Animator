@@ -33,14 +33,9 @@ function resetCanvas (e) {
 function load(){
 	cursor = Cursor.create(0, 0, 10);
 
-	// rig = Rig.create(w/2, h/2, {stick: false});
+	rig = Rig.create(w/2, h/2, {stick: false});
 
-	yarn = Rig.create(300, 300, {stick: true, joints: false, firstbone: false});
-	var length = 200, count = 100;
-	for(var i = 0; i < count; i++){
-		yarn.addBone(length/count);
-	}
-	yarn.addIK(yarn.bones[yarn.bones.length-2], undefined, 100);
+	console.log(document.getElementById("controllers").getBoundingClientRect());
 }
 
 
@@ -51,15 +46,12 @@ function refresh(){
 function update(){
 	if(Eventlib.rotate){
 		var angle = Delta(rig.cbone.x, rig.cbone.y, mouse.x, mouse.y).angle - Eventlib.rotate.relative + Eventlib.rotate.now;
-		// console.log(angle, Eventlib.rotate.relative);
 		rig.rotate(angle);
 	}
 
 	// rig.select(mouse);
 
 
-	yarn.reach(mouse.x, mouse.y);
-	yarn.update();
 	checkKeyState(rig);
 }
 
@@ -69,7 +61,6 @@ function render(){
 	if(rig){
 		rig.update(mouse, ctx);
 	}
-		yarn.render(ctx);
 	//should be last
 
 	if(Eventlib.rotate){

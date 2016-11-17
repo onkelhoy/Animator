@@ -123,12 +123,12 @@ var Rig = Rig || {
 	},
 
 	update: function(mouse, ctx){
-		var x = this.x, y = this.y;
+		var x = this.x, y = this.y, cbone = this.cbone;
 		this.bones.forEach(function(bone){
 			bone.update(x, y);
 
 			if(ctx) {
-				if(this.cbone && this.cbone.id == bone.id) bone.render(ctx, '#FFF224')
+				if(cbone && cbone.id == bone.id) bone.render(ctx, '#FFF224', true);
 				else bone.render(ctx);
 			}
 		});
@@ -181,7 +181,7 @@ var Bone = Bone || {
 	setAngle: function(angle){
 		//now it should set the angle to angle based on parent angle
 		this.angle = angle;
-		this.angle -= this.parent.getAngle();
+		// this.angle -= this.parent.getAngle();
 	},
 
 	getEndX: function() {
@@ -257,7 +257,7 @@ var Bone = Bone || {
 
 	update: function(x, y){
 		if(this.offset){
-			var angle = this.offset.angle + this.parent.angle;
+			var angle = this.offset.angle + this.parent.getAngle();
 			this.x = this.parent.getEndX() + Math.cos(angle) * this.offset.length;
 			this.y = this.parent.getEndY() + Math.sin(angle) * this.offset.length;
 		}
@@ -286,14 +286,14 @@ var Bone = Bone || {
 			context.closePath();
 
 			if(joints) {
-			context.beginPath();
-			 context.arc(this.x, this.y, 2, 0, Math.PI * 2);
-			 context.stroke();
-			context.closePath();
-			context.beginPath();
-			 context.arc(this.getEndX(), this.getEndY(), 2, 0, Math.PI * 2);
-			 context.stroke();
-			context.closePath();
+				context.beginPath();
+				 context.arc(this.x, this.y, 2, 0, Math.PI * 2);
+				 context.stroke();
+				context.closePath();
+				context.beginPath();
+				 context.arc(this.getEndX(), this.getEndY(), 2, 0, Math.PI * 2);
+				 context.stroke();
+				context.closePath();
 			}
 		}
 		else {

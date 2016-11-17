@@ -19,8 +19,6 @@ function checkKeyState(rig){
 				relative: d.angle,
 				now: rig.cbone.angle
 			}
-
-			console.log(Eventlib.rotate);
 		}
 	}
 

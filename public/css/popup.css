@@ -1,0 +1,5 @@
+.popupBox {
+	position: absolute;
+	max-width: 200px;
+	z-index: 5;
+}
